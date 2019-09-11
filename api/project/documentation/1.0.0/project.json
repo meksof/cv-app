@@ -556,6 +556,9 @@
                 }
               }
             }
+          },
+          "debut_projet": {
+            "type": "string"
           }
         }
       },
@@ -584,6 +587,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "debut_projet": {
+            "type": "string"
           }
         }
       }

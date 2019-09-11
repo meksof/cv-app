@@ -1,12 +1,15 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "project",
   "info": {
     "name": "project",
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
   },
   "attributes": {
     "title": {
@@ -30,6 +33,9 @@
     "tags": {
       "collection": "tags",
       "via": "projects"
+    },
+    "debut_projet": {
+      "type": "date"
     }
   }
 }

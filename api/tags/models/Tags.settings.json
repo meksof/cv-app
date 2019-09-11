@@ -18,8 +18,8 @@
     },
     "projects": {
       "collection": "project",
-      "via": "tags",
-      "dominant": true
+      "dominant": true,
+      "via": "tags"
     }
   }
 }
