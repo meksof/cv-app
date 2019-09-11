@@ -1,0 +1,42 @@
+{
+  "connection": "default",
+  "collectionName": "skill",
+  "info": {
+    "name": "skill",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "type": {
+      "enum": [
+        "technique",
+        "langue"
+      ],
+      "type": "enumeration",
+      "default": "technique",
+      "required": true
+    },
+    "name": {
+      "required": true,
+      "type": "string"
+    },
+    "level": {
+      "type": "integer",
+      "max": 5,
+      "default": "0"
+    },
+    "spoken_level": {
+      "type": "integer",
+      "max": 5
+    },
+    "written_level": {
+      "type": "integer",
+      "max": 5
+    }
+  }
+}

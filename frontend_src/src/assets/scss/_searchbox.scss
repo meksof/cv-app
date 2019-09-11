@@ -1,0 +1,27 @@
+.search-box {
+  input {
+    font-size: rem(26);
+    width: 100%;
+    height: rem(50);
+    border: none;
+    outline: none;
+    border-radius: 10rem;
+    padding: rem(10) rem(25); // position: relative;
+    transition: all 0.2s;
+    transition-delay: 0.1s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+    @media screen and (min-width: 480px) {
+      height: rem(64);
+    }
+
+    &:focus {
+      box-shadow: 0 1rem 2rem rgba(black, 0.1);
+    }
+  }
+}
+
+::placeholder {
+  text-align: right;
+  color: $gray-200;
+}

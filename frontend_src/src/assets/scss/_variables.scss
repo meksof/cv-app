@@ -1,0 +1,43 @@
+$baseFontSize: 16px;
+$main-card-width: 450px;
+$sidebar-width: 200px;
+$content-gutter: 10px;
+$green-400: #62fa83;
+$gray-600: #353535;
+$gray-400: #7b7b7b;
+$gray-300: #c7c7c7;
+$gray-200: #dcdcdc;
+$gray-100: #eee;
+
+/****************
+ colors
+ ****************/
+/* Color Theme Swatches in Hex */
+$My-Color-Theme-1-hex: #eb470e;
+$My-Color-Theme-2-hex: #de57cc;
+$My-Color-Theme-3-hex: #7e6df6;
+$My-Color-Theme-4-hex: #57c4de;
+$My-Color-Theme-5-hex: #62fa83;
+
+/* Color Theme Swatches in RGBA */
+// $My-Color-Theme-1-rgba: rgba(235, 71, 14, 1);
+// $My-Color-Theme-2-rgba: rgba(222, 87, 204, 1);
+// $My-Color-Theme-3-rgba: rgba(126, 109, 246, 1);
+// $My-Color-Theme-4-rgba: rgba(87, 196, 222, 1);
+// $My-Color-Theme-5-rgba: rgba(98, 250, 131, 1);
+
+/* Color Theme Swatches in HSLA */
+// $My-Color-Theme-1-hsla: hsla(15, 88, 48, 1);
+// $My-Color-Theme-2-hsla: hsla(308, 67, 60, 1);
+// $My-Color-Theme-3-hsla: hsla(247, 88, 69, 1);
+// $My-Color-Theme-4-hsla: hsla(191, 67, 60, 1);
+// $My-Color-Theme-5-hsla: hsla(133, 93, 68, 1);
+
+$red-400: $My-Color-Theme-1-hex;
+$pink-400: $My-Color-Theme-2-hex;
+$deep-purple-400: $My-Color-Theme-3-hex;
+$blue-400: $My-Color-Theme-4-hex;
+$green-400: $My-Color-Theme-5-hex;
+
+
+$body-color: #4b4b4b;

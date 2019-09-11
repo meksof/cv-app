@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "tags",
+  "info": {
+    "name": "tags",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "name": {
+      "required": true,
+      "type": "string"
+    },
+    "projects": {
+      "collection": "project",
+      "via": "tags",
+      "dominant": true
+    }
+  }
+}

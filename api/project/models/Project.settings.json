@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "project",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "client": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "team": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "roleList": {
+      "type": "json"
+    },
+    "tags": {
+      "collection": "tags",
+      "via": "projects"
+    }
+  }
+}
