@@ -49,7 +49,7 @@ export default {
       baseUrl:
         process.env.NODE_ENV == "development"
           ? "http://localhost:1337/"
-          : "http://dev-front.herokuapp.com/",
+          : "https://dev-front.herokuapp.com/",
       mySkills: {
         technicalSkills: [],
         languageSkills: []
