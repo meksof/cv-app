@@ -112,7 +112,7 @@ export default {
       axios
         .post(this.baseUrl + "graphql", {
           query: `query getCVDATA {
-  projects { 
+  projects (sort: "start_date:desc") { 
     title
     client
     duration

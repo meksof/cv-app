@@ -26,6 +26,7 @@
         <div class="description" v-html="highlight(project.description, appliedFilter)"></div>
         <div class="more-info mt-2">
           <div
+            v-if="project.roleList && Object.keys(project.roleList).length !== 0"
             class="more-info-trigger"
             v-bind:class="{open: project.moreInfo || (appliedFilter && appliedFilter.length > 1)}"
             v-on:click="toggleMoreInfo(project)"
