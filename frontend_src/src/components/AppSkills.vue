@@ -5,8 +5,8 @@
       <div class="section-title">
         <h3>Compétences techniques</h3>
       </div>
-      <div class="s-card mt-2">
-        <div v-for="skill in skills.technicalSkills" :key="skill.name">
+      <div class="s-card mt-2 text-center text-lg-left">
+        <div v-for="skill in skills.technicalSkills" :key="skill.name" class="skill">
           <h4>{{ skill.name }}</h4>
           <div class="progress mb-15">
             <div class="progressbar" :style="{width: (skill.level / maxSkillLevel)*100+'%'}"></div>
@@ -16,12 +16,12 @@
       </div>
     </div>
     <!-- Langues -->
-    <div  v-if="skills.languageSkills && skills.languageSkills.length != 0">
+    <div v-if="skills.languageSkills && skills.languageSkills.length != 0">
       <div class="section-title">
         <h3>Langues</h3>
       </div>
-      <div class="s-card mt-2">
-        <div v-for="skill in skills.languageSkills" :key="skill.name">
+      <div class="s-card mt-2 row no-gutters">
+        <div v-for="skill in skills.languageSkills" :key="skill.name" class="col-6 col-lg-12 mb-2 pl-2 pl-lg-0">
           <h4>{{ skill.name }}</h4>
           <div class="block-level">
             <span class="text">Oral</span>
@@ -56,34 +56,7 @@
   }
 </script>
 <style lang="scss" scoped>
-h3 {
-  font-size: 14px;
-  position: relative;
-  text-align: center;
-  color: #757575;
-  &::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: -28px;
-    width: 28px;
-    height: 2px;
-    height: 2px;
-    background-color: #c7c7c7;
-  }
-  &::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: -28px;
-    width: 28px;
-    height: 2px;
-    height: 2px;
-    background-color: #c7c7c7;
-  }
-}
+
 
 h4 {
   font-size: 15px;
@@ -91,8 +64,4 @@ h4 {
   margin-bottom: 3px;
 }
 
-.section-title {
-  margin-left: 20px;
-  margin-right: 20px;
-}
 </style>

@@ -2,25 +2,22 @@
   <div class="header">
     <div class="card card-top d-flex bg-deep-purple mx-auto">
       <div class="profile-image">
-        <img src="../assets/img/profile.jpg" alt="Photo profil">
+        <img src="../assets/img/profile.jpg" :alt="'Photo profil ' + profileInfo.fullName ">
       </div>
       <div class="my-auto mx-auto">
-        <h1 class="page-title">{{ fullName }}<span class="subtitle">{{ jobTitle }}</span></h1>
-        <em class="ff-c fz-12">(Angular 5+ , VueJS)</em>
+        <h1 class="page-title">{{ profileInfo.fullName }}<span class="subtitle">{{ profileInfo.jobTitle }}</span></h1>
+        <em class="ff-c fz-12">({{profileInfo.expertiseDomain}})</em>
         <br>
-        {{ experience }} {{ "ans d'expérience" }}
+        {{ profileInfo.experience }} {{ "ans d'expérience" }}
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "appHeader",
   props: {
-    jobTitle: String,
-    experience: Number,
-    fullName: String
+    profileInfo: Object
   }
 };
 </script>

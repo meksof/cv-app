@@ -1,5 +1,8 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-4">
+    <div class="section-title">
+      <h3>Missions / Projets</h3>
+    </div>
     <!-- standard card -->
     <div
       class="card mt-3"
@@ -50,13 +53,23 @@
         ></div>
       </div>
     </div>
+    <!-- show only for mobile devices -->
+    <appSkills :skills="skills" class="d-xl-none d-lg-none"></appSkills>
+
   </div>
-</template><script>
+</template>
+<script>
+import appSkills from './AppSkills.vue';
+
 export default {
+  components: {
+    appSkills
+  },
   name: "appCards",
   props: {
     cardItems: Array,
-    appliedFilter: String
+    appliedFilter: String,
+    skills: Object
   },
   methods: {
     toggleMoreInfo: function(card) {
@@ -88,23 +101,25 @@ export default {
  */
 function obsKeysToString(o, k, sep) {
   // iterate over key array
-  return k
-    .map(function(key) {
-      // +++++ custom data search ++++++
-      // tags are of type Array[{name: String}]
-      if (key == "tags") {
-        // look into "tag.name" object attribute
-        let tagsArray = o[key].map(tag => tag.name);
-        return tagsArray.join(sep);
-      }
-      // get object property value
-      return o[key];
-    })
-    // filter out non-empty and defined property
-    .filter(function(v) {
-      return v;
-    })
-    // join the property value array with the separator
-    .join(sep);
+  return (
+    k
+      .map(function(key) {
+        // +++++ custom data search ++++++
+        // tags are of type Array[{name: String}]
+        if (key == "tags") {
+          // look into "tag.name" object attribute
+          let tagsArray = o[key].map(tag => tag.name);
+          return tagsArray.join(sep);
+        }
+        // get object property value
+        return o[key];
+      })
+      // filter out non-empty and defined property
+      .filter(function(v) {
+        return v;
+      })
+      // join the property value array with the separator
+      .join(sep)
+  );
 }
 </script>

@@ -1,0 +1,32 @@
+{
+  "connection": "default",
+  "collectionName": "profile",
+  "info": {
+    "name": "profile",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "experience": {
+      "type": "integer"
+    },
+    "fullName": {
+      "required": true,
+      "type": "string"
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "expertiseDomain": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "text"
+    }
+  }
+}

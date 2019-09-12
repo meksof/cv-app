@@ -1,4 +1,20 @@
+$width-search-icon: 32px;
 .search-box {
+  position: relative;
+  &::before {
+    content: " ";
+    background-image: url(./assets/img/search_icon.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: $width-search-icon;
+    height: $width-search-icon - 1;
+    display: block;
+    position: absolute;
+    right: $width-search-icon;
+    top: 50%;
+    transform: translateY(-$width-search-icon/2);
+    opacity: 0.2;
+  }
   input {
     font-size: rem(26);
     width: 100%;
@@ -17,6 +33,15 @@
 
     &:focus {
       box-shadow: 0 1rem 2rem rgba(black, 0.1);
+    }
+    
+  }
+}
+
+.user-is-typing {
+  .search-box {
+    &::before {
+      opacity: 0;
     }
   }
 }

@@ -1,22 +1,24 @@
 <template>
   <div class="home" v-bind:class="{'user-is-typing': userIsTyping}">
-    <appHeader :jobTitle="jobTitle" :experience="experience" :fullName="'MEKSI Sofiane'"></appHeader>
+    <appHeader :profileInfo="profile"></appHeader>
     <div class="content mx-auto">
       <div class="sidebar">
         <div class="s-card s-card-top bg-deep-purple">
           <div class="profile-image">
             <img class="d-block mx-auto" src="../assets/img/profile-180.jpg" alt="Photo profil" />
           </div>
-          <h1 class="page-title">{{ fullName }}<span class="subtitle">{{ jobTitle }}</span></h1>
-          <em class="ff-c fz-12">(Angular 5+ , VueJS)</em>
+          <h1 class="page-title">{{ profile.fullName }}<span class="subtitle">{{ profile.jobTitle }}</span></h1>
+          <em class="ff-c fz-12">({{ profile.expertiseDomain }})</em>
           <br />
-          {{ experience }} {{ "ans d'expérience" }}
+          {{ profile.experience }} {{ "ans d'expérience" }}
         </div>
         <appSkills v-bind:skills="mySkills"></appSkills>
       </div>
       <div class="main">
         <appSearchbox v-on:typing="filterCards($event)"></appSearchbox>
-        <appCards v-bind:card-items="myProjects" v-bind:appliedFilter="searchKeyword"></appCards>
+        <!-- summary -->
+        <appSummary :summary="profile.summary"></appSummary>
+        <appCards :card-items="myProjects" :appliedFilter="searchKeyword" :skills="mySkills"></appCards>
       </div>
     </div>
   </div>
@@ -25,6 +27,7 @@
 <script>
 // @ is an alias to /src
 import appHeader from "../components/AppHeader.vue";
+import appSummary from "../components/AppSummary.vue";
 import appSearchbox from "../components/AppSearchbox.vue";
 import appCards from "../components/AppCards";
 import appSkills from "../components/AppSkills";
@@ -34,17 +37,16 @@ export default {
   name: "home",
   components: {
     appHeader,
+    appSummary,
     appSearchbox,
     appCards,
     appSkills
   },
   data: () => {
     return {
-      jobTitle: "DEV FRONT",
-      fullName: "MEKSI Sofiane",
-      experience: 6,
       userIsTyping: false,
       searchKeyword: "",
+      profile: {},
       myProjects: [],
       baseUrl:
         process.env.NODE_ENV == "development"
@@ -112,6 +114,13 @@ export default {
       axios
         .post(this.baseUrl + "graphql", {
           query: `query getCVDATA {
+  profiles (limit: 1) {
+    summary
+    experience
+    fullName
+    jobTitle
+    expertiseDomain
+  }
   projects (sort: "start_date:desc") { 
     title
     client
@@ -123,7 +132,7 @@ export default {
       name
     }
   }
-  technicalSkills: skills (where: { type: technique }){ 
+  technicalSkills: skills (sort: "level:desc",where: { type: technique }){ 
     name
     level
   } 
@@ -161,6 +170,9 @@ export default {
                 response.data.data.languageSkills.length > 0
               ) {
                 this.mySkills.languageSkills = response.data.data.languageSkills;
+              }
+              if ( response.data.data.profiles ) {
+                this.profile = response.data.data.profiles[0]; // get first item from list
               }
             }
           }

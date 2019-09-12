@@ -16,4 +16,8 @@ Vue.filter("highlightSearchKeyword", function(value, searchKeyword) {
   );
 });
 
+Vue.filter('truncate', function (value, maxLength, noFilter) {
+  if (!value && typeof(value) !== 'string') return '';
+  return !noFilter ? value.replace(value.substr(maxLength+1), '') : value;
+})
 export default Vue;
