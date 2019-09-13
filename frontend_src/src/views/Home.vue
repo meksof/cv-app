@@ -17,8 +17,8 @@
       <div class="main">
         <appSearchbox v-on:typing="filterCards($event)"></appSearchbox>
         <!-- summary -->
-        <appSummary :summary="profile.summary"></appSummary>
-        <appCards :card-items="myProjects" :appliedFilter="searchKeyword" :skills="mySkills"></appCards>
+        <appSummary v-if="profile.summary" :summary="profile.summary"></appSummary>
+        <appCards v-if="myProjects.length > 0" :card-items="myProjects" :appliedFilter="searchKeyword" :skills="mySkills"></appCards>
       </div>
     </div>
   </div>
