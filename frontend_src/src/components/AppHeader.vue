@@ -2,7 +2,7 @@
   <div class="header">
     <div class="card card-top d-flex bg-deep-purple mx-auto">
       <div class="profile-image">
-        <img src="../assets/img/profile.jpg" :alt="'Photo profil ' + profileInfo.fullName ">
+        <img v-if="profileInfo.image" :src="baseUrl + profileInfo.image.url" :alt="'Photo profil ' + profileInfo.fullName" class="img-fluid">
       </div>
       <div class="my-auto mx-auto">
         <h1 class="page-title">{{ profileInfo.fullName }}<span class="subtitle">{{ profileInfo.jobTitle }}</span></h1>
@@ -14,10 +14,16 @@
   </div>
 </template>
 <script>
+import appConstants from '../constants';
 export default {
   name: "appHeader",
   props: {
     profileInfo: Object
+  },
+  data: () => {
+    return {
+      baseUrl: appConstants.WEBSITE_URL
+    }
   }
 };
 </script>

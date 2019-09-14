@@ -1,13 +1,32 @@
 <template>
   <div class="home" v-bind:class="{'user-is-typing': userIsTyping}">
+    <div class="no-data" v-if="noDataError">
+      <span>On n'arrive pas à avoir les données, Veuillez vérifier votre connexion</span>
+    </div>
+    <div class="page-loader" v-if="loading">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <appHeader :profileInfo="profile"></appHeader>
-    <div class="content mx-auto">
+    <div class="content mx-auto" style="position: relative;">
       <div class="sidebar">
         <div class="s-card s-card-top bg-deep-purple">
           <div class="profile-image">
-            <img class="d-block mx-auto" src="../assets/img/profile-180.jpg" alt="Photo profil" />
+            <img
+              class="d-block mx-auto"
+              v-if="profile.image"
+              :src="baseUrl + profile.image.url"
+              :alt="'Photo profil ' + profile.fullName"
+            />
           </div>
-          <h1 class="page-title">{{ profile.fullName }}<span class="subtitle">{{ profile.jobTitle }}</span></h1>
+          <h1 class="page-title">
+            {{ profile.fullName }}
+            <span class="subtitle">{{ profile.jobTitle }}</span>
+          </h1>
           <em class="ff-c fz-12">({{ profile.expertiseDomain }})</em>
           <br />
           {{ profile.experience }} {{ "ans d'expérience" }}
@@ -18,7 +37,12 @@
         <appSearchbox v-on:typing="filterCards($event)"></appSearchbox>
         <!-- summary -->
         <appSummary v-if="profile.summary" :summary="profile.summary"></appSummary>
-        <appCards v-if="myProjects.length > 0" :card-items="myProjects" :appliedFilter="searchKeyword" :skills="mySkills"></appCards>
+        <appCards
+          v-if="myProjects.length > 0"
+          :card-items="myProjects"
+          :appliedFilter="searchKeyword"
+          :skills="mySkills"
+        ></appCards>
       </div>
     </div>
   </div>
@@ -32,7 +56,8 @@ import appSearchbox from "../components/AppSearchbox.vue";
 import appCards from "../components/AppCards";
 import appSkills from "../components/AppSkills";
 import axios from "axios";
-
+import appConstants from "../constants";
+import EventBus from "../event-bus";
 export default {
   name: "home",
   components: {
@@ -48,71 +73,20 @@ export default {
       searchKeyword: "",
       profile: {},
       myProjects: [],
-      baseUrl:
-        process.env.NODE_ENV == "development"
-          ? "http://localhost:1337/"
-          : "https://dev-front.herokuapp.com/",
+      // baseUrl: this.$data.$baseUrl,
+      baseUrl: appConstants.WEBSITE_URL,
       mySkills: {
         technicalSkills: [],
         languageSkills: []
-      }
-      // EXPECTED DATA:
-      /* { 
-          type: "technique",
-          name: "html",
-          level: 5
-        },
-        {
-          type: "technique",
-          name: "CSS - SASS / LESS",
-          level: 5
-        },
-        {
-          type: "technique",
-          name: "Angular",
-          level: 4
-        },
-        {
-          type: "technique",
-          name: "javascript",
-          level: 3
-        },
-        {
-          type: "technique",
-          name: "typescript",
-          level: 3
-        },
-        {
-          type: "technique",
-          name: "mySQL",
-          level: 2
-        },
-        {
-          type: "langue",
-          name: "Français",
-          written: {
-            level: 4
-          },
-          spoken: {
-            level: 3
-          }
-        },
-        {
-          type: "langue",
-          name: "English",
-          written: {
-            level: 4
-          },
-          spoken: {
-            level: 2
-          }
-        }, */
+      },
+      loading: false,
+      noDataError: false
     };
   },
   methods: {
     fetchData() {
       axios
-        .post(this.baseUrl + "graphql", {
+        .post(this.baseUrl + "/graphql", {
           query: `query getCVDATA {
   profiles (limit: 1) {
     summary
@@ -120,6 +94,9 @@ export default {
     fullName
     jobTitle
     expertiseDomain
+    image {
+      url
+    }
   }
   projects (sort: "start_date:desc") { 
     title
@@ -163,15 +140,17 @@ export default {
                 response.data.data.technicalSkills &&
                 response.data.data.technicalSkills.length > 0
               ) {
-                this.mySkills.technicalSkills = response.data.data.technicalSkills;
+                this.mySkills.technicalSkills =
+                  response.data.data.technicalSkills;
               }
               if (
                 response.data.data.languageSkills &&
                 response.data.data.languageSkills.length > 0
               ) {
-                this.mySkills.languageSkills = response.data.data.languageSkills;
+                this.mySkills.languageSkills =
+                  response.data.data.languageSkills;
               }
-              if ( response.data.data.profiles ) {
+              if (response.data.data.profiles) {
                 this.profile = response.data.data.profiles[0]; // get first item from list
               }
             }
@@ -184,6 +163,14 @@ export default {
     }
   },
   created: function() {
+    // Show err message when no data
+    EventBus.$on("noDataError", payLoad => {
+      this.noDataError = payLoad;
+    });
+    // Show / Hide Loading spinner
+    EventBus.$on("loading", payLoad => {
+      this.loading = payLoad;
+    });
     this.fetchData();
   }
 };

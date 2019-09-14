@@ -1,11 +1,40 @@
 <template>
-  <div id="app" class="container">
-    <router-view/>
+  <div>
+    <div id="app" class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 <script>
+import axios from 'axios';
+import EventBus from './event-bus';
+
 export default {
-  name: "app"
+  name: "app",
+  data: () => {
+    return {
+      loading: false
+    }
+  },
+  created: function() {
+    // trigger loading spinner
+    axios.interceptors.request.use((config) => {
+      // this.loading = true;
+      EventBus.$emit('loading', true);
+      return config;
+    }, (error) => {
+      EventBus.$emit('loading', false);
+      return Promise.reject(error);
+    });
+    axios.interceptors.response.use((response) => {
+      EventBus.$emit('loading', false);
+      return response;
+    }, (error) => {
+      EventBus.$emit('loading', false);
+      EventBus.$emit('noDataError', true);
+      return Promise.reject(error);
+    });
+  }
 };
 </script>
 <style lang="scss">

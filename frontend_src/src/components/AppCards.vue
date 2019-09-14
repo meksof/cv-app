@@ -92,8 +92,7 @@ export default {
       );
       return searchRegex.test(flattenCardValues);
     }
-  },
-  created: function() {}
+  }
 };
 
 /**
