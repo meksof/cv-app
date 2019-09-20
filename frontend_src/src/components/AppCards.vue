@@ -53,7 +53,7 @@
         ></div>
       </div>
     </div>
-    <!-- show only for mobile devices -->
+    <!-- show skills As a Card List only for mobile devices -->
     <appSkills :skills="skills" class="d-xl-none d-lg-none"></appSkills>
 
   </div>

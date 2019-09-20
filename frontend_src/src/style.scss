@@ -246,7 +246,9 @@ blockquote {
         max-width: 450px;
         margin-left: auto;
         margin-right: auto;
-
+        &::before {
+            visibility: hidden;
+        }
         input {
             background-color: #fff;
         }
@@ -420,7 +422,7 @@ $progressbarHeight: 18px;
         height: $progressbarHeight;
         top: 0;
         left: 0;
-        background-color: $deep-purple-400;
+        background-color: lighten($deep-purple-400, 10%);
     }
 }
 

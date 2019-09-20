@@ -14,23 +14,7 @@
     <appHeader :profileInfo="profile"></appHeader>
     <div class="content mx-auto" style="position: relative;">
       <div class="sidebar">
-        <div class="s-card s-card-top bg-deep-purple">
-          <div class="profile-image">
-            <img
-              class="d-block mx-auto"
-              v-if="profile.image"
-              :src="profile.image.url"
-              :alt="'Photo profil ' + profile.fullName"
-            />
-          </div>
-          <h1 class="page-title">
-            {{ profile.fullName }}
-            <span class="subtitle">{{ profile.jobTitle }}</span>
-          </h1>
-          <em class="ff-c fz-12">({{ profile.expertiseDomain }})</em>
-          <br />
-          {{ profile.experience }} {{ "ans d'expérience" }}
-        </div>
+        <appProfile :profileInfo="profile"></appProfile>
         <appSkills v-bind:skills="mySkills"></appSkills>
       </div>
       <div class="main">
@@ -55,6 +39,7 @@ import appSummary from "../components/AppSummary.vue";
 import appSearchbox from "../components/AppSearchbox.vue";
 import appCards from "../components/AppCards";
 import appSkills from "../components/AppSkills";
+import appProfile from "../components/AppProfile";
 import axios from "axios";
 import appConstants from "../constants";
 import EventBus from "../event-bus";
@@ -65,7 +50,8 @@ export default {
     appSummary,
     appSearchbox,
     appCards,
-    appSkills
+    appSkills,
+    appProfile
   },
   data: () => {
     return {
@@ -96,6 +82,7 @@ export default {
     expertiseDomain
     image {
       url
+      provider
     }
   }
   projects (sort: "start_date:desc") { 
