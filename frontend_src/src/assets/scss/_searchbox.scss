@@ -1,12 +1,10 @@
-$width-search-icon: 32px;
+$width-search-icon: 38px;
 $width-search-icon-small: ($width-search-icon / 1.28);
 .search-box {
   position: relative;
+  color: #dedede;
   .search-icon {
-    background: url('./assets/img/search_icon.jpg') no-repeat center center;
-    background-size: contain;
-    -webkit-background-size: contain;
-    -o-background-size: contain;
+    fill: currentColor;
     width: $width-search-icon-small;
     height: $width-search-icon-small;
     display: block;
@@ -14,7 +12,6 @@ $width-search-icon-small: ($width-search-icon / 1.28);
     right: $width-search-icon-small;
     top: 50%;
     transform: translateY(-$width-search-icon-small/2);
-    opacity: 0.2;
     pointer-events: none;
     @media screen and (min-width: 480px) {
       width: $width-search-icon;
@@ -24,7 +21,7 @@ $width-search-icon-small: ($width-search-icon / 1.28);
     }
   }
   input {
-    font-size: rem(26);
+    font-size: rem(20);
     width: 100%;
     height: rem(50);
     border: none;
@@ -37,6 +34,7 @@ $width-search-icon-small: ($width-search-icon / 1.28);
 
     @media screen and (min-width: 480px) {
       height: rem(64);
+      font-size: rem(26);
     }
 
     &:focus {
