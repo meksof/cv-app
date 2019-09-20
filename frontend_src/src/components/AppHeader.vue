@@ -2,7 +2,7 @@
   <div class="header">
     <div class="card card-top d-flex bg-deep-purple mx-auto">
       <div class="profile-image">
-        <img v-if="profileInfo.image" :src="baseUrl + profileInfo.image.url" :alt="'Photo profil ' + profileInfo.fullName" class="img-fluid">
+        <img v-if="profileInfo.image" :src="profileInfo.image.url" :alt="'Photo profil ' + profileInfo.fullName" class="img-fluid">
       </div>
       <div class="my-auto mx-auto">
         <h1 class="page-title">{{ profileInfo.fullName }}<span class="subtitle">{{ profileInfo.jobTitle }}</span></h1>

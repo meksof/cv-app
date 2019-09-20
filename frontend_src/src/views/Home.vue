@@ -19,7 +19,7 @@
             <img
               class="d-block mx-auto"
               v-if="profile.image"
-              :src="baseUrl + profile.image.url"
+              :src="profile.image.url"
               :alt="'Photo profil ' + profile.fullName"
             />
           </div>
