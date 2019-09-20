@@ -1,6 +1,7 @@
 <template lang="html">
     <div class="search-box mt-3">
         <input type="text" placeholder="Scrum ..." v-on:keyup="imTyping($event)">
+        <div class="search-icon"></div>
     </div>
 </template>
 <script lang="js">

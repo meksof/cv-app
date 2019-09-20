@@ -1,13 +1,12 @@
-$width-search-icon: 40px;
+$width-search-icon: 32px;
 $width-search-icon-small: ($width-search-icon / 1.28);
 .search-box {
   position: relative;
-  &::before {
-    content: " ";
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0iIzVGNjM2OCI+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg==);
-    background-position: 0 0;
-    background-size: $width-search-icon-small $width-search-icon-small;
-    background-repeat: no-repeat;
+  .search-icon {
+    background: url('./assets/img/search_icon.jpg') no-repeat center center;
+    background-size: contain;
+    -webkit-background-size: contain;
+    -o-background-size: contain;
     width: $width-search-icon-small;
     height: $width-search-icon-small;
     display: block;
@@ -20,7 +19,7 @@ $width-search-icon-small: ($width-search-icon / 1.28);
     @media screen and (min-width: 480px) {
       width: $width-search-icon;
       height: $width-search-icon;
-      background-size: $width-search-icon $width-search-icon;
+      // background-size: $width-search-icon $width-search-icon;
       transform: translateY(-$width-search-icon/2);
     }
   }
