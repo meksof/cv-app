@@ -11,16 +11,16 @@
         <div></div>
       </div>
     </div>
-    <appHeader :profileInfo="profile"></appHeader>
+    <appHeader :profileInfo="myProfile"></appHeader>
     <div class="content mx-auto" style="position: relative;">
       <div class="sidebar">
-        <appProfile :profileInfo="profile"></appProfile>
+        <appProfile :profileInfo="myProfile"></appProfile>
         <appSkills v-bind:skills="mySkills"></appSkills>
       </div>
       <div class="main">
         <appSearchbox v-on:typing="filterCards($event)"></appSearchbox>
         <!-- summary -->
-        <appSummary v-if="profile.summary" :summary="profile.summary"></appSummary>
+        <appSummary v-if="myProfile.summary" :summary="myProfile.summary"></appSummary>
         <appCards
           v-if="myProjects.length > 0"
           :card-items="myProjects"
@@ -57,9 +57,8 @@ export default {
     return {
       userIsTyping: false,
       searchKeyword: "",
-      profile: {},
+      myProfile: {},
       myProjects: [],
-      // baseUrl: this.$data.$baseUrl,
       baseUrl: appConstants.WEBSITE_URL,
       mySkills: {
         technicalSkills: [],
@@ -138,7 +137,7 @@ export default {
                   response.data.data.languageSkills;
               }
               if (response.data.data.profiles) {
-                this.profile = response.data.data.profiles[0]; // get first item from list
+                this.myProfile = response.data.data.profiles[0]; // get first item from list
               }
             }
           }

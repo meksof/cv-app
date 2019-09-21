@@ -1,13 +1,5 @@
+// Body font size
 $baseFontSize: 16px;
-$main-card-width: 450px;
-$sidebar-width: 200px;
-$content-gutter: 10px;
-$green-400: #62fa83;
-$gray-600: #353535;
-$gray-400: #7b7b7b;
-$gray-300: #c7c7c7;
-$gray-200: #dcdcdc;
-$gray-100: #eee;
 
 /****************
  colors
@@ -39,5 +31,24 @@ $deep-purple-400: $My-Color-Theme-3-hex;
 $blue-400: $My-Color-Theme-4-hex;
 $green-400: $My-Color-Theme-5-hex;
 
-$main-color: $deep-purple-400;
+// Available used gray colors
+$gray-600: #353535;
+$gray-500: #7b7b7b;
+$gray-400: #aaa;
+$gray-300: #c7c7c7;
+$gray-200: #dcdcdc;
+$gray-100: #eee;
+
+/****************
+    CUSTOM VARIABLES
+ ****************/
+// Background colors for profile summary and progress bar background
+$main-color: $deep-purple-400; 
+// Cards width
+$main-card-width: 450px;
+// Sidebar width
+$sidebar-width: 200px;
+// Gutter margin beetween "Sidebar" and "Main" area
+$content-gutter: 10px;
+// Font color for all text
 $body-color: #4b4b4b;

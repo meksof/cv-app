@@ -5,7 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <title><%= VUE_APP_TITLE %></title>
+    <title><%= VUE_APP_WEBSITE_TITLE %></title>
+
+    <!-- START Social media  -->
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="photo" />
+    <meta name="twitter:site" content="<%= VUE_APP_PRODUCTION_URL %>" />
+    <meta name="twitter:image" content="<%= VUE_APP_SOCIAL_IMAGE_URL %>" />
+    <meta name="twitter:url" content="<%= VUE_APP_PRODUCTION_URL %>" />
+    <!-- Open Graph data -->
+    <meta property="og:image" content="<%= VUE_APP_SOCIAL_IMAGE_URL %>" />
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%= VUE_APP_GA_ID %>"></script>
     <script>

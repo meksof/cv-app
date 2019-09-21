@@ -6,6 +6,10 @@ Vue.filter("uppercase", function(value) {
   return value.toUpperCase();
 });
 
+/**
+ *  Apply and Highlight a Keyword to "value"
+ *  @param searchKeyword: applied keyword
+ */
 Vue.filter("highlightSearchKeyword", function(value, searchKeyword) {
   if (!value) return "";
   if (!searchKeyword) return value;
@@ -15,9 +19,15 @@ Vue.filter("highlightSearchKeyword", function(value, searchKeyword) {
     '<span class="il">' + searchKeyword + "</span>"
   );
 });
-
-Vue.filter('truncate', function (value, maxLength, noFilter) {
+/** 
+ *  @param maxLength: when this filter function is applied, the "value" will be 
+ *                    truncated to "maxLength" caracters
+ *  @param extraString: If exists, the truncated text will add this "extraString",
+ *                    Ex: '...'
+ *  @param noFilter: whether apply or not this filter
+*/
+Vue.filter('truncate', function (value, maxLength, extraString = '',  noFilter) {
   if (!value && typeof(value) !== 'string') return '';
-  return !noFilter ? value.replace(value.substr(maxLength+1), '') : value;
+  return !noFilter ? value.replace(value.substr(maxLength+1), '') + extraString : value;
 })
 export default Vue;
