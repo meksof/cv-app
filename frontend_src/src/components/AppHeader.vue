@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="card card-top d-flex bg-deep-purple mx-auto">
+    <div class="card card-top d-flex bg-main-color mx-auto">
       <div class="profile-image">
         <img v-if="profileInfo.image" :src="getProfileImage(profileInfo.image)" :alt="'Photo profil ' + profileInfo.fullName" class="img-fluid">
       </div>

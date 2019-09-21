@@ -16,11 +16,11 @@
           <h3 class="card-title" v-html="highlight(project.title, appliedFilter)"></h3>
           <span class="card-subtitle no-wrap" v-html="highlight(project.client, appliedFilter)"></span>
         </div>
-        <div class="col-3 col-sm-3 d-flex align-items-start">
+        <div v-if="project.duration" class="col-3 col-sm-3 d-flex align-items-start">
           <i class="icon stopwatch"></i>
           <span class="ff-c light-gray">{{ project.duration }}</span>
         </div>
-        <div class="col-4 col-sm-4 d-flex align-items-start">
+        <div v-if="project.team" class="col-4 col-sm-4 d-flex align-items-start">
           <i class="icon group"></i>
           <span class="ff-c light-gray">{{ project.team }}</span>
         </div>

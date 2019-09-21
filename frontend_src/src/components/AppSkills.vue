@@ -57,11 +57,4 @@
 </script>
 <style lang="scss" scoped>
 
-
-h4 {
-  font-size: 15px;
-  margin-top: 0;
-  margin-bottom: 3px;
-}
-
 </style>

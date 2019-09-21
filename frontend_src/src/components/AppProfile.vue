@@ -1,5 +1,5 @@
 <template>
-  <div class="s-card s-card-top bg-deep-purple">
+  <div class="s-card s-card-top bg-main-color">
     <div class="profile-image">
       <img
         class="d-block mx-auto"
