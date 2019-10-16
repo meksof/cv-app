@@ -28,6 +28,7 @@
           :skills="mySkills"
         ></appCards>
       </div>
+      <appSocialMedia></appSocialMedia>
     </div>
   </div>
 </template>
@@ -40,6 +41,7 @@ import appSearchbox from "../components/AppSearchbox.vue";
 import appCards from "../components/AppCards";
 import appSkills from "../components/AppSkills";
 import appProfile from "../components/AppProfile";
+import appSocialMedia from "../components/AppSocialMedia";
 import axios from "axios";
 import appConstants from "../constants";
 import EventBus from "../event-bus";
@@ -51,7 +53,8 @@ export default {
     appSearchbox,
     appCards,
     appSkills,
-    appProfile
+    appProfile,
+    appSocialMedia
   },
   data: () => {
     return {
