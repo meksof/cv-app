@@ -13,6 +13,7 @@
 html {
     font-size: $baseFontSize - 1px;
     height: 100%;
+
     @media screen and (min-width: 480px) {
         font-size: $baseFontSize;
     }
@@ -246,9 +247,11 @@ blockquote {
         max-width: 450px;
         margin-left: auto;
         margin-right: auto;
+
         &::before {
             visibility: hidden;
         }
+
         input {
             background-color: #fff;
         }
@@ -366,10 +369,11 @@ blockquote {
     @extend %icon;
     margin-right: 6px;
 
-    
+
 
     &.stopwatch {
         background-image: url(./assets/img/icons/stopwatch.svg);
+
         @media screen and (max-width: $main-card-width - 1) {
             display: none;
         }
@@ -379,6 +383,15 @@ blockquote {
         background-image: url(./assets/img/icons/group.svg);
         width: 22px;
         height: 22px;
+    }
+}
+
+.profile-title {
+    margin-left: 25px;
+
+    @media screen and (min-width: 578px) {
+        margin-right: auto;
+        margin-left: auto;
     }
 }
 
@@ -560,5 +573,55 @@ blockquote {
 
     &:hover {
         color: $gray-400;
+    }
+}
+
+
+
+/****************
+ Social media icons
+ ****************/
+.sm {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: rotate(270deg);
+    display: none;
+
+    svg {
+        width: 28px;
+        height: 28px;
+
+        @media screen and (min-width: 578px) {
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    .header & {
+        position: absolute;
+        top: 26px;
+        display: block;
+
+        .active-path {
+            fill: #fff;
+        }
+
+        @media screen and (min-width: 479px) {
+            right: calc(50% - 225px);
+        }
+
+        @media screen and (min-width: 627px) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 627px) {
+        display: block;
+        right: calc(50% - 315px);
+    }
+
+    @media screen and (min-width: 993px) {
+        right: calc(50% - 435px);
     }
 }

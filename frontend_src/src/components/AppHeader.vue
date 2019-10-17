@@ -4,19 +4,24 @@
       <div class="profile-image">
         <img v-if="profileInfo.image" :src="getProfileImage(profileInfo.image)" :alt="'Photo profil ' + profileInfo.fullName" class="img-fluid">
       </div>
-      <div class="my-auto mx-auto">
+      <div class="my-auto profile-title">
         <h1 class="page-title">{{ profileInfo.fullName }}<span class="subtitle">{{ profileInfo.jobTitle }}</span></h1>
         <em class="ff-c fz-12">({{profileInfo.expertiseDomain}})</em>
         <br>
         {{ profileInfo.experience }} {{ "ans d'expérience" }}
       </div>
+      <appSocialMedia></appSocialMedia>
     </div>
   </div>
 </template>
 <script>
 import appConstants from '../constants';
+import appSocialMedia from './AppSocialMedia';
 export default {
   name: "appHeader",
+  components: {
+    appSocialMedia
+  },
   props: {
     profileInfo: Object
   },
