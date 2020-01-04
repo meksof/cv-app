@@ -87,12 +87,15 @@ blockquote {
 }
 
 .page-title {
-    margin-top: 0;
+    margin-top: rem(12);
     font-size: rem(18);
+    margin-bottom: 0;
 
     .subtitle {
+        margin-top: 2px;
         display: block;
-        font-size: rem(14);
+        font-size: rem(12);
+        text-transform: uppercase;
     }
 }
 
@@ -218,6 +221,10 @@ blockquote {
     color: $gray-500;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
 .mb-15 {
     margin-bottom: 15px;
 }
@@ -287,8 +294,8 @@ blockquote {
     padding: rem(4.8) rem(8);
     margin: 0 2px 2px 0;
     border-radius: 0;
-    color: black;
-    background: #e5e5e5;
+    color: white;
+    background: $gray-500;
     transition: 0.13s ease-out;
 }
 
@@ -407,7 +414,7 @@ blockquote {
 /****************
  Progress bar
  ****************/
-$progressbarHeight: 18px;
+$progressbarHeight: 13px;
 
 .progress {
     position: relative;
@@ -421,12 +428,12 @@ $progressbarHeight: 18px;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 
     &.mini {
-        height: $progressbarHeight / 2;
+        height: $progressbarHeight / 1.75;
         width: 50%;
 
         .level {
             font-size: 9px;
-            line-height: $progressbarHeight / 2;
+            line-height: $progressbarHeight / 1.75;
         }
     }
 
@@ -435,7 +442,8 @@ $progressbarHeight: 18px;
         height: $progressbarHeight;
         top: 0;
         left: 0;
-        background-color: lighten($main-color, 10%);
+        background-color: $gray-400;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
     }
 }
 
@@ -445,7 +453,7 @@ $progressbarHeight: 18px;
     flex: 0 0;
 
     .text {
-        line-height: $progressbarHeight;
+        line-height: $progressbarHeight * 1.5;
         font-size: 13px;
         flex: 1 1;
     }
@@ -517,7 +525,6 @@ $progressbarHeight: 18px;
 
 blockquote {
     position: relative;
-    font-family: 'Arial', serif;
     font-style: italic;
     padding-left: 3em;
 
@@ -528,6 +535,7 @@ blockquote {
 
     &:before {
         content: '\201C';
+        font-family: 'Arial', serif;
         position: absolute;
         top: 0.05em;
         left: -0.05em;
@@ -540,6 +548,11 @@ blockquote {
 /****************
  Skills card
  ****************/
+h4 {
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
 .skill {
     width: calc(33.3333% - 10px);
     display: inline-block;
@@ -549,8 +562,7 @@ blockquote {
         text-align: center;
         font-size: rem(15px);
         line-height: rem(15*1.2);
-        margin-top: 0;
-        margin-bottom: 3px;
+        margin-bottom: 6px;
     }
 
 }
