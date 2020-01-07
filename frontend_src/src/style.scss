@@ -600,9 +600,26 @@ h4 {
     transform: rotate(270deg);
     display: none;
 
+    a {
+        &:hover {
+            path {
+                fill: darken($main-color, 10%);
+            }
+        }
+
+    }
+
     svg {
         width: 28px;
         height: 28px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+
+        path {
+            fill: $main-color;
+            transition: all .6s ease;
+
+        }
 
         @media screen and (min-width: 578px) {
             width: 34px;
