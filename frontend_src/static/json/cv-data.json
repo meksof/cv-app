@@ -1,100 +1,99 @@
 {
+  "httpHeader": {},
   "data": {
-    "profiles": [
-      {
-        "summary": "Nulla porta dolor. Phasellus gravida semper nisi. Suspendisse feugiat. Nullam tincidunt adipiscing enim. Vestibulum ullamcorper mauris at ligula.
-
-        Pellentesque dapibus hendrerit tortor. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Praesent egestas neque eu enim. Donec sodales sagittis magna.
-        
-        Etiam imperdiet imperdiet orci. Pellentesque posuere. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Vestibulum dapibus nunc ac augue. Phasellus consectetuer vestibulum elit. ",
-        "experience": 6,
-        "fullName": "YOUR_NAME",
-        "jobTitle": "YOUR_JOB_TITLE",
-        "expertiseDomain": "YOUR_EXPERTISE_DOMAIN",
-        "image": {
-          "url": "https://api.adorable.io/avatars/180/abott@adorable.png",
-          "provider": "local"
-        }
-      }
-    ],
-    "projects": [
-      {
-        "title": "MY_PROJECT_TITLE",
-        "client": "MY_CLIENT_NAME",
-        "duration": "PROJECT_DURATION",
-        "team": 5,
-        "description": "Nulla facilisi.. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus euismod mauris.",
-        "roleList": [
-          "Sed magna purus fermentum eu",
-          "Nullam dictum felis eu pede",
-          "Cum sociis natoque penatibus et magnis dis parturient montes"
-        ],
-        "tags": [
-          {
-            "name": "Angular 7"
-          },
-          {
-            "name": "REST API"
-          },
-          {
-            "name": "Scrum"
-          },
-          {
-            "name": "CSS"
-          },
-          {
-            "name": "Typescript"
-          },
-          {
-            "name": "Jasmine unit test"
-          },
-          {
-            "name": "gitlab-ci"
+    "data": {
+      "profiles": [
+        {
+          "summary": "Nulla porta dolor. Phasellus gravida semper nisi. Suspendisse feugiat. Nullam tincidunt adipiscing enim. Vestibulum ullamcorper mauris at ligula. Pellentesque dapibus hendrerit tortor. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Praesent egestas neque eu enim. Donec sodales sagittis magna. Etiam imperdiet imperdiet orci. Pellentesque posuere. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Vestibulum dapibus nunc ac augue. Phasellus consectetuer vestibulum elit. ",
+          "experience": 6,
+          "fullName": "YOUR_NAME",
+          "jobTitle": "YOUR_JOB_TITLE",
+          "expertiseDomain": "YOUR_EXPERTISE_DOMAIN",
+          "image": {
+            "url": "https://api.adorable.io/avatars/180/abott@adorable.png",
+            "provider": "remote"
           }
-        ]
-      }
-    ],
-    "technicalSkills": [
-      {
-        "name": "html",
-        "level": 5
-      },
-      {
-        "name": "CSS - SASS / LESS",
-        "level": 5
-      },
-      {
-        "name": "Angular",
-        "level": 4
-      },
-      {
-        "name": "javascript",
-        "level": 3
-      },
-      {
-        "name": "typescript",
-        "level": 3
-      },
-      {
-        "name": "VueJS",
-        "level": 3
-      },
-      {
-        "name": "MySQL / NoSQL",
-        "level": 2
-      }
-    ],
-    "languageSkills": [
-      {
-        "name": "English",
-        "spoken_level": 3,
-        "written_level": 4
-      },
-      {
-        "name": "Spanish",
-        "spoken_level": 2,
-        "written_level": 3
-      }
-    ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "MY_PROJECT_TITLE",
+          "client": "MY_CLIENT_NAME",
+          "duration": "PROJECT_DURATION",
+          "team": 5,
+          "description": "Nulla facilisi.. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus euismod mauris.",
+          "roleList": [
+            "Sed magna purus fermentum eu",
+            "Nullam dictum felis eu pede",
+            "Cum sociis natoque penatibus et magnis dis parturient montes"
+          ],
+          "tags": [
+            {
+              "name": "Angular 7"
+            },
+            {
+              "name": "REST API"
+            },
+            {
+              "name": "Scrum"
+            },
+            {
+              "name": "CSS"
+            },
+            {
+              "name": "Typescript"
+            },
+            {
+              "name": "Jasmine unit test"
+            },
+            {
+              "name": "gitlab-ci"
+            }
+          ]
+        }
+      ],
+      "technicalSkills": [
+        {
+          "name": "html",
+          "level": 5
+        },
+        {
+          "name": "CSS - SASS / LESS",
+          "level": 5
+        },
+        {
+          "name": "Angular",
+          "level": 4
+        },
+        {
+          "name": "javascript",
+          "level": 3
+        },
+        {
+          "name": "typescript",
+          "level": 3
+        },
+        {
+          "name": "VueJS",
+          "level": 3
+        },
+        {
+          "name": "MySQL / NoSQL",
+          "level": 2
+        }
+      ],
+      "languageSkills": [
+        {
+          "name": "English",
+          "spoken_level": 3,
+          "written_level": 4
+        },
+        {
+          "name": "Spanish",
+          "spoken_level": 2,
+          "written_level": 3
+        }
+      ]
+    }
   }
 }

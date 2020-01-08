@@ -1,9 +1,12 @@
 $width-search-icon: 38px;
 $width-search-icon-small: ($width-search-icon / 1.28);
 
+$width-close-icon: 18px;
+$width-close-icon-small: ($width-close-icon / 1.28);
+
 .search-box {
   position: relative;
-  color: #dedede;
+  color: $gray-200;
 
   .search-icon {
     fill: currentColor;
@@ -21,6 +24,29 @@ $width-search-icon-small: ($width-search-icon / 1.28);
       height: $width-search-icon;
       // background-size: $width-search-icon $width-search-icon;
       transform: translateY(-$width-search-icon/2);
+    }
+  }
+
+  .clear-icon {
+    fill: $gray-500;
+    width: $width-close-icon-small;
+    height: $width-close-icon-small;
+    position: absolute;
+    right: 40px;
+    transform: translateY(-$width-close-icon-small/2);
+    top: 50%;
+    display: none;
+    cursor: pointer;
+
+    &:hover {
+      fill: darken($gray-500, 10%)
+    }
+
+    @media screen and (min-width: 480px) {
+      width: $width-close-icon;
+      height: $width-close-icon;
+      // background-size: $width-close-icon $width-close-icon;
+      transform: translateY(-$width-close-icon/2);
     }
   }
 

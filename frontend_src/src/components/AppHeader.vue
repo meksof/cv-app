@@ -2,12 +2,20 @@
   <div class="header">
     <div class="card card-top d-flex bg-main-color mx-auto">
       <div class="profile-image">
-        <img v-if="profileInfo.image" :src="getProfileImage(profileInfo.image)" :alt="'Photo profil ' + profileInfo.fullName" class="img-fluid">
+        <img
+          v-if="profileInfo.image"
+          :src="getProfileImage(profileInfo.image)"
+          :alt="'Photo profil ' + profileInfo.fullName"
+          class="img-fluid"
+        />
       </div>
       <div class="my-auto profile-title">
-        <h1 class="page-title">{{ profileInfo.fullName }}<span class="subtitle">{{ profileInfo.jobTitle }}</span></h1>
-        <em class="ff-c fz-12">({{profileInfo.expertiseDomain}})</em>
-        <br>
+        <h1 class="page-title">
+          {{ profileInfo.fullName
+          }}<span class="subtitle">{{ profileInfo.jobTitle }}</span>
+        </h1>
+        <em class="ff-c fz-12">({{ profileInfo.expertiseDomain }})</em>
+        <br />
         {{ profileInfo.experience }} {{ "ans d'expérience" }}
       </div>
       <appSocialMedia></appSocialMedia>
@@ -15,8 +23,8 @@
   </div>
 </template>
 <script>
-import appConstants from '../constants';
-import appSocialMedia from './AppSocialMedia';
+import appConstants from "../constants";
+import appSocialMedia from "./AppSocialMedia";
 export default {
   name: "appHeader",
   components: {
@@ -28,12 +36,16 @@ export default {
   data: () => {
     return {
       baseUrl: appConstants.WEBSITE_URL
-    }
+    };
   },
   methods: {
     getProfileImage: function(profileImgObj) {
-      return profileImgObj ? ( profileImgObj.provider == "local" ? this.baseUrl + profileImgObj.url : profileImgObj.url ) : '';
-    } 
+      return profileImgObj
+        ? profileImgObj.provider == "local"
+          ? this.baseUrl + profileImgObj.url
+          : profileImgObj.url
+        : "";
+    }
   }
 };
 </script>

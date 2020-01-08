@@ -17,18 +17,27 @@
     <meta property="og:image" content="<%= VUE_APP_SOCIAL_IMAGE_URL %>" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= VUE_APP_GA_ID %>"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=<%= VUE_APP_GA_ID %>"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', '<%= VUE_APP_GA_ID %>');
+      gtag("config", "<%= VUE_APP_GA_ID %>");
     </script>
 
     <!-- fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap"
       rel="stylesheet"
     />
   </head>

@@ -86,6 +86,39 @@ blockquote {
     }
 }
 
+.experience {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 35px;
+    transform: rotate(-45deg);
+    color: $red-400;
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 92px;
+    line-height: 0.75;
+    text-align: center;
+    white-space: nowrap;
+
+    span {
+        font-size: 13px;
+        display: block;
+    }
+
+
+}
+
+.profile-exp-wrapper {
+    background-image: url(./assets/img/badge-1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(-135deg);
+    position: absolute;
+    left: -67px;
+    top: -60px;
+    width: 100px;
+    height: 233px;
+}
+
 .page-title {
     margin-top: rem(12);
     font-size: rem(18);
@@ -233,6 +266,10 @@ blockquote {
     @media screen and (min-width: 993px) {
         text-align: left !important;
     }
+}
+
+.va-btm {
+    vertical-align: bottom;
 }
 
 /****************
@@ -402,11 +439,16 @@ blockquote {
     }
 }
 
+.profile {
+    position: relative;
+}
+
 .sidebar {
     .profile-image {
         margin-right: -15px;
         margin-left: -15px;
         margin-top: -15px;
+        background-color: #fff;
     }
 }
 

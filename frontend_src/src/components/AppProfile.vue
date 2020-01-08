@@ -1,8 +1,8 @@
 <template>
-  <div class="s-card s-card-top bg-main-color">
-    <div class="profile-image">
+  <div class="s-card s-card-top bg-main-color profile">
+    <div class="profile-image text-right">
       <img
-        class="d-block mx-auto"
+        class="d-inline-block va-btm"
         v-if="profileInfo.image"
         :src="getProfileImage(profileInfo.image)"
         :alt="'Photo profil ' + profileInfo.fullName"
@@ -14,7 +14,10 @@
     </h1>
     <em class="ff-c fz-12">({{ profileInfo.expertiseDomain }})</em>
     <br />
-    {{ profileInfo.experience }} {{ "ans d'expérience" }}
+    <div class="profile-exp-wrapper"></div>
+    <div class="experience">
+      {{ profileInfo.experience }} ANS <span>{{ "D'EXPÉRIENCE" }}</span>
+    </div>
   </div>
 </template>
 
