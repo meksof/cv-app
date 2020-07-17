@@ -32,9 +32,9 @@ $width-close-icon-small: ($width-close-icon / 1.28);
     width: $width-close-icon-small;
     height: $width-close-icon-small;
     position: absolute;
-    right: 40px;
-    transform: translateY(-$width-close-icon-small/2);
-    top: 50%;
+    right: 26px;
+    top: 15px;
+    transform: none;
     display: none;
     cursor: pointer;
 
@@ -46,6 +46,8 @@ $width-close-icon-small: ($width-close-icon / 1.28);
       width: $width-close-icon;
       height: $width-close-icon;
       // background-size: $width-close-icon $width-close-icon;
+      right: 40px;
+      top: 50%;
       transform: translateY(-$width-close-icon/2);
     }
   }
