@@ -117,3 +117,5 @@ package-lock.json
 .env
 config/environments/development/database.json
 /config/environments/development/database.json
+yarn.lock
+package-lock.json
