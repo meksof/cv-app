@@ -14,15 +14,18 @@
     </h1>
     <em class="ff-c fz-12">({{ profileInfo.expertiseDomain }})</em>
     <br />
-    <div class="profile-exp-wrapper"></div>
-    <div class="experience">
-      {{ profileInfo.experience }} ANS <span>{{ "D'EXPÉRIENCE" }}</span>
+    <div class="accroche-mur"></div>
+    <div ref="profileExpWrapper" class="profile-exp-wrapper"></div>
+    <div ref="experience" class="experience">
+      {{ profileInfo.experience }} ANS
+      <span>{{ "D'EXPÉRIENCE" }}</span>
     </div>
   </div>
 </template>
 
 <script>
 import appConstants from "../constants";
+import { TimelineLite } from "gsap";
 export default {
   name: "appProfile",
   props: {
@@ -41,6 +44,16 @@ export default {
           : profileImgObj.url
         : "";
     }
+  },
+  mounted() {
+    const { profileExpWrapper, experience } = this.$refs;
+    const timeline = new TimelineLite({
+      onComplete: () => {
+        experience.style.visibility = "visible";
+      }
+    });
+
+    timeline.to(profileExpWrapper, 1, { rotate: 0, ease: "bounce.out" });
   }
 };
 </script>
