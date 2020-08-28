@@ -54,7 +54,7 @@ export default {
     appCards,
     appSkills,
     appProfile,
-    appSocialMedia
+    appSocialMedia,
   },
   data: () => {
     return {
@@ -65,10 +65,10 @@ export default {
       baseUrl: appConstants.WEBSITE_URL,
       mySkills: {
         technicalSkills: [],
-        languageSkills: []
+        languageSkills: [],
       },
       loading: false,
-      noDataError: false
+      noDataError: false,
     };
   },
   methods: {
@@ -107,9 +107,9 @@ export default {
     spoken_level
     written_level
   } 
-}`
+}`,
         })
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             // Get projects data
             // And add new key `moreInfo` to original data
@@ -119,7 +119,7 @@ export default {
                 response.data.data.projects.length > 0
               ) {
                 let projects = response.data.data.projects;
-                this.myProjects = projects.map(project => {
+                this.myProjects = projects.map((project) => {
                   let o = Object.assign({}, project);
                   o.moreInfo = false;
                   return o;
@@ -142,6 +142,7 @@ export default {
               if (response.data.data.profiles) {
                 this.myProfile = response.data.data.profiles[0]; // get first item from list
               }
+              EventBus.$emit("dataWasLoaded");
             }
           }
         });
@@ -149,18 +150,18 @@ export default {
     filterCards($event) {
       this.searchKeyword = $event;
       // fire filter cards event
-    }
+    },
   },
-  created: function() {
+  created: function () {
     // Show err message when no data
-    EventBus.$on("noDataError", payLoad => {
+    EventBus.$on("noDataError", (payLoad) => {
       this.noDataError = payLoad;
     });
     // Show / Hide Loading spinner
-    EventBus.$on("loading", payLoad => {
+    EventBus.$on("loading", (payLoad) => {
       this.loading = payLoad;
     });
     this.fetchData();
-  }
+  },
 };
 </script>

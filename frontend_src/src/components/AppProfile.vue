@@ -26,34 +26,40 @@
 <script>
 import appConstants from "../constants";
 import { TimelineLite } from "gsap";
+import EventBus from "../event-bus";
+import CSSPlugin from "gsap/CSSPlugin";
+
+const C = CSSPlugin; // Used on production build, otherwise the animation wouldn't work
+
 export default {
   name: "appProfile",
   props: {
-    profileInfo: Object
+    profileInfo: Object,
   },
   data: () => {
     return {
-      baseUrl: appConstants.WEBSITE_URL
+      baseUrl: appConstants.WEBSITE_URL,
     };
   },
   methods: {
-    getProfileImage: function(profileImgObj) {
+    getProfileImage: function (profileImgObj) {
       return profileImgObj
         ? profileImgObj.provider == "local"
           ? this.baseUrl + profileImgObj.url
           : profileImgObj.url
         : "";
-    }
+    },
   },
   mounted() {
     const { profileExpWrapper, experience } = this.$refs;
     const timeline = new TimelineLite({
       onComplete: () => {
         experience.style.visibility = "visible";
-      }
+      },
     });
-
-    timeline.to(profileExpWrapper, 1, { rotate: 0, ease: "bounce.out" });
-  }
+    EventBus.$on("dataWasLoaded", () => {
+      timeline.to(profileExpWrapper, 1, { rotate: 0, ease: "bounce.out" });
+    });
+  },
 };
 </script>
