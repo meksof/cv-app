@@ -17,9 +17,9 @@
       "type": "string"
     },
     "projects": {
+      "via": "tags",
       "collection": "project",
-      "dominant": true,
-      "via": "tags"
+      "dominant": true
     }
   }
 }

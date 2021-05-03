@@ -119,3 +119,6 @@ config/environments/development/database.json
 /config/environments/development/database.json
 yarn.lock
 package-lock.json
+.history
+.vscode
+.data

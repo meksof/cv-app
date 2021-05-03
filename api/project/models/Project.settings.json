@@ -35,7 +35,7 @@
       "via": "projects"
     },
     "start_date": {
-      "type": "date"
+      "type": "datetime"
     }
   }
 }

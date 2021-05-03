@@ -1,7 +1,10 @@
 <template>
-  <div class="home" v-bind:class="{'user-is-typing': userIsTyping}">
+  <div class="home" v-bind:class="{ 'user-is-typing': userIsTyping }">
     <div class="no-data" v-if="noDataError">
-      <span>On n'arrive pas à avoir les données, Veuillez vérifier votre connexion</span>
+      <span
+        >On n'arrive pas à avoir les données, Veuillez vérifier votre
+        connexion</span
+      >
     </div>
     <div class="page-loader" v-if="loading">
       <div class="lds-ring">
@@ -12,7 +15,7 @@
       </div>
     </div>
     <appHeader :profileInfo="myProfile"></appHeader>
-    <div class="content mx-auto" style="position: relative;">
+    <div class="content mx-auto" style="position: relative">
       <div class="sidebar">
         <appProfile :profileInfo="myProfile"></appProfile>
         <appSkills v-bind:skills="mySkills"></appSkills>
@@ -20,7 +23,10 @@
       <div class="main">
         <appSearchbox v-on:typing="filterCards($event)"></appSearchbox>
         <!-- summary -->
-        <appSummary v-if="myProfile.summary" :summary="myProfile.summary"></appSummary>
+        <appSummary
+          v-if="myProfile.summary"
+          :summary="myProfile.summary"
+        ></appSummary>
         <appCards
           v-if="myProjects.length > 0"
           :card-items="myProjects"
@@ -73,6 +79,7 @@ export default {
   },
   methods: {
     fetchData() {
+      // TODO: to move into a service class
       axios
         .post(this.baseUrl + "/graphql", {
           query: `query getCVDATA {
@@ -98,11 +105,11 @@ export default {
       name
     }
   }
-  technicalSkills: skills (sort: "level:desc",where: { type: technique }){ 
+  technicalSkills: skills (sort: "level:desc",where: { type: "technique" }){ 
     name
     level
   } 
-  languageSkills: skills (where: { type: langue }){ 
+  languageSkills: skills (where: { type: "langue" }){ 
     name
     spoken_level
     written_level
@@ -111,8 +118,7 @@ export default {
         })
         .then((response) => {
           if (response.status == 200) {
-            // Get projects data
-            // And add new key `moreInfo` to original data
+            // TODO: Use rxjs to map data instead
             if (response.data) {
               if (
                 response.data.data.projects &&
@@ -142,10 +148,10 @@ export default {
               if (response.data.data.profiles) {
                 this.myProfile = response.data.data.profiles[0]; // get first item from list
               }
-              EventBus.$emit("dataWasLoaded");
             }
           }
-        });
+        })
+        .finally(() => EventBus.$emit("dataWasLoaded"));
     },
     filterCards($event) {
       this.searchKeyword = $event;
